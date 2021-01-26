@@ -57,3 +57,10 @@ Following parts of the text will be replaced before the message is sent:
 
 1. Talk to [@userinfobot](https://telegram.me/userinfobot).
 1. The bot will give you your user id.
+
+## Battery life
+
+One 18650 battery lasted for 186 days. During that time 1130 messages has been sent. There were 4 warnings about low voltage before battery was removed. Voltage at the end of test was 3.41, charger reported 2366mAh to 4.2V.
+
+Average use: ``2366/186 = 12.72mA daily``; ``2366/1130 = 2.1mA per message``.
+
