@@ -4,6 +4,13 @@
 
 ![pic2](https://github.com/gdmn/esp8266door/blob/master/pic2.jpg)
 
+## Needed boards and libraries
+
+- [esp8266](https://github.com/esp8266/Arduino)
+- [WiFiSettings](https://github.com/Juerd/ESP-WiFiSettings)
+- [CTBot](https://github.com/shurillu/CTBot)
+- [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore)
+
 ## How it works
 
 Project uses ATTiny45 (although it should fit into 25).

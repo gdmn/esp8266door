@@ -46,7 +46,21 @@ ADC_MODE(ADC_VCC);  // allows you to monitor the internal VCC level; it varies w
                     // don't connect anything to the analog input pin(s)!
 
 void setupSettings() {
-  LittleFS.begin();  // Will format on the first run after failing to mount
+  if(!LittleFS.begin()) {
+    Serial.println("An Error has occurred while mounting LittleFS");
+    Serial.println("Formatting...");
+    if (LittleFS.format()) {
+      Serial.println("OK");
+    } else {
+      Serial.println("Failed");
+    }
+    if(!LittleFS.begin()) {
+      while (true) {
+        Serial.println("Error after formatting has occurred while mounting LittleFS");
+        delay(15000);
+      }
+    }
+  }
 
   // Set custom callback functions
   WiFiSettings.onSuccess  = []() {
@@ -81,7 +95,7 @@ void setupSettings() {
 }
 
 void goSleep() {
-  WiFi.mode(WIFI_SHUTDOWN);  // Forced Modem Sleep for a more Instant Deep Sleep
+  WiFi.mode(WIFI_OFF);
   Serial.println("\nSetting shutdown pin low...");
   Serial.flush();
   digitalWrite(SHUTDOWN_PIN, LOW);
